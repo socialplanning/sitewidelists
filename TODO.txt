@@ -1,0 +1,18 @@
+From highest priority to lowest:
+
+ * Upon auto-removal, we should remove allowed-sender-ness as well as
+   subscription. This is a bug in OpenCore as well (and is actually
+   much more problematic there than here, since it's conceivably a 
+   project security hole if a malicious member is booted from the 
+   project -- here it's just clutter since there'll be a crufty reference
+   to a nonexistent member. oh, well, it might be a security hole if a
+   new member joins with the same id as the deleted member.)
+ * Flunc tests
+ * Set default list manager
+ * Make ISyncWithProjectMembership toggleable
+ * Make this whole package go away -- really it only needs to exist
+   b/c there's no uniform interface for "fetching all members of the
+   current micro-site-thingie (e.g. portal,project) so we need separate
+   event subscribers. Also we need to use a different default list type
+   (PostModerated instead of Discussion) but that could also be abstracted
+   easily enough

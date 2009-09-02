@@ -1,0 +1,22 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+   <!-- necessary wiring for ISyncWithMembership lists mship syncing -->
+   <subscriber
+     for="opencore.interfaces.event.IFirstLoginEvent"
+     handler=".subscribers.member_joined_site"
+     />
+   <subscriber
+     for="opencore.interfaces.event.IMemberDeletedEvent"
+     handler=".subscribers.member_left_site"
+     />
+
+   <!-- necessary wiring for autocreation of default 
+        ISyncWithMembership-enabled list -->
+   <subscriber
+     for="opencore.interfaces.IOpenSiteRoot
+          opencore.interfaces.event.IListenFeatureletCreatedEvent"
+     handler="opencore.listen.events.listen_featurelet_installed"
+     />
+
+
+</configure>
