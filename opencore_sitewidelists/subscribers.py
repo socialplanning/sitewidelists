@@ -7,7 +7,7 @@ def member_left_site(event):
 
     try:
         portal = IListenFeatureletInstalled(getSite())
-    except KeyError:
+    except TypeError:
         return
 
     _perform_listen_action(
@@ -21,7 +21,7 @@ def member_joined_site(event):
 
     try:
         portal = IListenFeatureletInstalled(getSite())
-    except KeyError:
+    except TypeError:
         return
 
     _perform_listen_action(
