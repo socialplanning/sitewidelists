@@ -1,0 +1,17 @@
+This is an informal testing script to be turned into automated flunc tests.
+
+add sitewide lists
+
+verify topnav:
+ find "Mailing Lists":  / /people /projects /news/*
+ notfind "Mailing Lists":  /people/* /projects/*
+  .. except a IListenFeatureletInstalled project will have a *different* "Mailing Lists" link
+
+non-admins get /lists/ redirected to default list (iff there is only one list, which there should be at first, automagically); admins don't
+
+flex ISyncWithProjectMembership (and maybe verify it doesn't happen for newly created lists)
+
+verify list type
+ * are we allowed to create a non-post-moderated list? i don't know about this.
+
+remove sitewide lists
