@@ -69,6 +69,10 @@ from Products.listen.interfaces.list_types import PostModeratedListTypeDefinitio
 from Products.listen.content import ListTypeChanged
 from zope.event import notify
 
+if len(sys.argv) < 2:
+    print __doc__
+    sys.exit(0)
+
 if sys.argv[1] == 'add':
     IFeatureletSupporter(portal).installFeaturelet('listen')
     lists_folder = IListenContainer(IListenFeatureletInstalled(portal).lists)
